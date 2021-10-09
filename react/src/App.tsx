@@ -10,7 +10,6 @@ function App(): ReactElement {
       <StarRating
         style={{ backgroundColor: "lightblue"}}
         onDoubleClick={(e: React.ChangeEvent<HTMLInputElement>) => alert("double click")}
-        onClick={(e: React.ChangeEvent<HTMLInputElement>) => alert("single click")}
       />
     </div>
   )
