@@ -1,15 +1,16 @@
-import { ReactElement, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
-import StarRating from './comps/StarRating'
+import colorData from '../static/json/color-data.json'
+import ColorList from './components/ColorList'
+import StarRating from './components/StarRating'
 
-function App(): ReactElement {
-  const [count, setCount] = useState(0)
-
+function App() {
+  const [colors] = useState(colorData)
+  
   return (
     <div className="App">
-      <StarRating
-        style={{ backgroundColor: "lightblue"}}
-        onDoubleClick={(e: React.ChangeEvent<HTMLInputElement>) => alert("double click")}
+      <ColorList 
+        colors={colors}
       />
     </div>
   )
