@@ -1,0 +1,22 @@
+{
+  "colors": [
+    {
+      "id": "1aa",
+      "title": "ocean",
+      "color": "#00c4e2",
+      "rating": 5
+    },
+    {
+      "id": "2bb",
+      "title": "grass",
+      "color": "26ac56",
+      "rating": 3
+    },
+    {
+      "id": "3cc",
+      "title": "bright red",
+      "color": "#ff0000",
+      "rating": 0
+    }
+  ]
+}
