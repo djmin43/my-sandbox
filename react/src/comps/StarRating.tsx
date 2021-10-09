@@ -1,14 +1,13 @@
 import React, { ReactElement } from 'react'
-import { FaStar } from 'react-icons/fa'
+import Star from './common/Star'
 
-const StarRating = (): ReactElement => {
+const StarRating = ({ totalStars = 5 }): ReactElement => {
+
+  const createArray = (length: number) => [...Array(length)]
+
   return (
     <div>
-      <FaStar color='red' />
-      <FaStar color='red' />
-      <FaStar color='red' />
-      <FaStar color='grey' />
-      <FaStar color='grey' />
+      {createArray(totalStars).map((item, i) => <Star selected key={i} /> )}
     </div>
   )
 }
