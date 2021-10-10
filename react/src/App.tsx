@@ -5,11 +5,16 @@ import ColorList from './components/ColorList'
 import StarRating from './components/StarRating'
 
 function App() {
-  const [colors] = useState(colorData)
-  
+  const [colors, setColors] = useState(colorData)
+
+  const onRemoveColor = (id: string) => {
+    const newColors = colors.filter(color => color.id !== id)
+    setColors(newColors)
+  }
   return (
     <div className="App">
-      <ColorList 
+      <ColorList
+        onRemoveColor={onRemoveColor}
         colors={colors}
       />
     </div>

@@ -3,6 +3,7 @@ import Color from './common/Color'
 
 interface Props {
   colors: ColorType[]
+  onRemoveColor: (f: string) => void
 }
 
 interface ColorType {
@@ -12,14 +13,14 @@ interface ColorType {
   rating: number;
 }
 
-const ColorList = ({colors = []}: Props) => {
+const ColorList = ({colors = [], onRemoveColor = f => f}: Props) => {
 
-  if (!colors.length) return <div>there is no color to render</div>
+  if (!colors.length) return <div>No colors listed. (add a color)</div>
 
   return (
     <div>
       {
-        colors.map(color => <Color key={color.id} {...color}/> )
+        colors.map(color => <Color key={color.id} {...color} onRemove={onRemoveColor}/> )
       }
     </div>
   )
