@@ -1,5 +1,4 @@
-{
-  "colors": [
+[
     {
       "id": "1aa",
       "title": "ocean",
@@ -18,5 +17,4 @@
       "color": "#ff0000",
       "rating": 0
     }
-  ]
-}
+]
