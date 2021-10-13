@@ -14,14 +14,17 @@ function App() {
   }
 
   useEffect(() =>{
-    setName('hello')
-    console.log(name)}
-  , [name])
+    // console.log('---begin---')
+    setName('new')
+    console.log(name)
+    // console.log('----end----')
+  }
+  , [])
   
   return (
     <div className="App">
-      <button onClick={() => setName('something else')}>
-        change
+      <button onClick={() => setName('click')}>
+        {name}
       </button>
       <ColorList
         onRemoveColor={onRemoveColor}
