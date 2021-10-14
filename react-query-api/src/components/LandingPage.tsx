@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
+import { useQuery } from 'react-query'
 
 const LandingPage = () => {
 
   const API = 'https://jsonplaceholder.typicode.com/todos/1'
 
-  const fetchTodo = async () => {
+  const fetchTodo = async (queryKey: any) => {
     try {
+      console.log('querykey', queryKey)
       const result = await axios.get(API)
       console.log(result)
       return result
@@ -14,12 +16,9 @@ const LandingPage = () => {
       console.log(error)
       throw Error
     }
-
   }
   
-  useEffect(() => {
-    fetchTodo()
-  }, [])
+  useQuery('hello', fetchTodo)
 
   return (
     <div>
