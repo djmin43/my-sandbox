@@ -1,9 +1,12 @@
-const createDockerFile = (sn) => {
+const createDockerFile = (payload) => {
   const file = `
-  FROM nginx
-  ENV SN=${sn}
+  FROM node:alpine AS deps
+  WROKDIR /app
+  ENV SN=${payload.sn}
+  ENV MESSAGE=${payload.message}
   COPY . .
-  EXPOSE 85
+  EXPOSE ${payload.port}
+  CMD ["yarn", "dev"]
   `
   return file
 }
