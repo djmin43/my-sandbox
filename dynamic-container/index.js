@@ -15,14 +15,13 @@ const templateInformation = {
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  console.log('req', req)
   res.send('hello world!')
 })
 
 app.post('/', async (req, res) => {
   await writeFile(req.body)
   await buildDocker(req.body)
-  await runDocker(req.body)
+  // await runDocker(req.body)
   console.log('req', req.body)
   res.send(req.body)
 })
