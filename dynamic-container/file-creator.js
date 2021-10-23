@@ -1,7 +1,8 @@
 const createDockerFile = (payload) => {
+  console.log('createdockerfile', payload)
   const file = `
   FROM node:alpine AS deps
-  WROKDIR /app
+  WORKDIR /app
   ENV SN=${payload.sn}
   ENV MESSAGE=${payload.message}
   COPY . .
