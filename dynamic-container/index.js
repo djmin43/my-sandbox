@@ -5,6 +5,13 @@ const express = require("express")
 const app = express()
 const port = 5000
 
+const templateInformation = {
+  sn: 1111,
+  message: 'good news',
+  port: 3005,
+  template: 'basic'
+}
+
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -13,7 +20,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log('req', req.body.hello)
+  writeFile(req.body)
+  console.log('req', req.body)
   res.send('hello')
 })
 
@@ -21,25 +29,23 @@ app.listen(port, () => {
   console.log(`you are on port ${port}`)
 })
 
-console.log('hello')
-// var id = 1234
+const writeFile = (payload) => {
+  fs.writeFile(`./template-${payload.template}', createDockerFile(payload)`, function (err) {
+    if (err) {
+      console.log(err)
+      return
+    }
+    console.log('yay!')
+    buildDocker(payload)
+  })
+}
 
-// fs.writeFile('./docker-folder/Dockerfile', createDockerFile(id), function (err) {
-//   if (err) {
-//     console.log(err)
-//     return
-//   }
-//   console.log('yay!')
-//   runDocker(id)
-// })
-
-
-// const runDocker = (id) => {
-//   exec(`docker build -t testing-${id} ./docker-folder`, (error, stdout, stderr) => {
-//   if (error) {
-//     console.log(`exec error: ${error}`)
-//     return
-//   }
-//   console.log(`stdout: ${stdout}`)
-//   console.error(`stderr: ${stderr}`)
-// })}
+const buildDocker = (payload) => {
+  exec(`docker build -t store-${payload.sn} ./template-${payload.template}`, (error, stdout, stderr) => {
+  if (error) {
+    console.log(`exec error: ${error}`)
+    return
+  }
+  console.log(`stdout: ${stdout}`)
+  console.error(`stderr: ${stderr}`)
+})}
