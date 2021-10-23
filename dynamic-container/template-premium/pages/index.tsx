@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   console.log(process.env.MESSAGE)
   return (
     <div className={styles.container}>
-      {message}
+      message: {message}
     </div>
   )
 }
