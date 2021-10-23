@@ -29,14 +29,16 @@ app.listen(port, () => {
   console.log(`you are on port ${port}`)
 })
 
-const writeFile = (payload) => {
+const writeFile = async (payload) => {
   fs.writeFile(`./template-${payload.template}', createDockerFile(payload)`, function (err) {
     if (err) {
       console.log(err)
       return
     }
     console.log('yay!')
-    buildDocker(payload)
+    await buildDocker(payload)
+    await runDocker(payload)
+    console.log(`docker running at port ${payload.port}`)
   })
 }
 
@@ -49,3 +51,14 @@ const buildDocker = (payload) => {
   console.log(`stdout: ${stdout}`)
   console.error(`stderr: ${stderr}`)
 })}
+
+const runDocker = (payload) => {
+  exec(`docker run --name store-${payload.sn} -dp ${paylaod.port}:${payload.port} store-${payload.sn}`, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`exec error: ${error}`)
+      return
+    }
+    console.log(`stdout: ${stdout}`)
+    console.error(`stdout: ${stderr}`)
+  })
+}
