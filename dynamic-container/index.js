@@ -1,5 +1,7 @@
-const { exec } = require("child_process")
-const createDockerFile = require('./file-creator')
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+const createDockerFile = require('./dockerfile-creator')
+const createDockerCompose = require('./docker-compose-creator')
 const fs = require("fs")
 const express = require("express")
 const app = express()
@@ -19,8 +21,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', async (req, res) => {
-  await writeFile(req.body)
-  await buildDocker(req.body)
+  await writeDockerFile(req.body)
+  await createDockerCompose(req.body)
+  // await buildDocker(req.body)
   // await runDocker(req.body)
   console.log('req', req.body)
   res.send(req.body)
@@ -30,7 +33,7 @@ app.listen(port, () => {
   console.log(`you are on port ${port}`)
 })
 
-const writeFile = (payload) => {
+const writeDockerFile = (payload) => {
   fs.writeFile(`./template-${payload.template}/Dockerfile`, createDockerFile(payload), function (err) {
     if (err) {
       console.log(err)

@@ -4,7 +4,7 @@ const createDockerFile = (payload) => {
   FROM node:alpine AS deps
   WORKDIR /app
   ENV SN=${payload.sn}
-  ENV MESSAGE=${payload.message}
+  ENV MESSAGE="${payload.message}"
   COPY . .
   EXPOSE ${payload.port}
   CMD ["yarn", "dev"]
