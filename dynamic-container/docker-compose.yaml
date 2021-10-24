@@ -1,0 +1,7 @@
+
+version: "3.9"
+  front-end:
+    build: ./template-basic
+    ports:
+      - "3000:3000"
+  
