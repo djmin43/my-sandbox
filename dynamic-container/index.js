@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 app.post('/', async (req, res) => {
   await writeDockerFile(req.body)
   await writeDockerCompose(req.body)
+  await runDockerCompose()
   // await buildDocker(req.body)
   // await runDocker(req.body)
   console.log('req', req.body)
@@ -72,8 +73,8 @@ const runDocker = (payload) => {
   })
 }
 
-const runDockerCompose = (payload) => {
-  exec(`docker run --name store-${payload.sn} -dp ${payload.port}:${payload.port} store-${payload.sn}`, (error, stdout, stderr) => {
+const runDockerCompose = () => {
+  exec(`docker-compose up --build`, (error, stdout, stderr) => {
     if (error) {
       console.log(`exec error: ${error}`)
       return
