@@ -1,6 +1,7 @@
 const createDockerCompose = (payload) => {
   const dockerCompose = `
 version: "3.9"
+services:
   front-end:
     build: ./template-${payload.template}
     ports:

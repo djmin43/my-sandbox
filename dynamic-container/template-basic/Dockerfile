@@ -4,6 +4,6 @@
   ENV SN=1111
   ENV MESSAGE="good-news"
   COPY . .
-  EXPOSE 3000
+  EXPOSE 3003
   CMD ["yarn", "dev"]
   
