@@ -1,14 +1,21 @@
 
-  FROM node:alpine
-  RUN mkdir -p /usr/src
-  WORKDIR /usr/src
-  COPY . /usr/src  
+  FROM node
+
   ENV SN=1111
+  ENV NEXT_PUBLIC_SN=1111
   ENV MESSAGE="good-news"
-  COPY package.json yarn.lock ./
+  ENV NEXT_PUBLIC_MESSAGE="good-news"
+  
+  WORKDIR /usr/src/app
+
+  COPY package*.json ./
   RUN yarn install
-  RUN yarn build
+
   COPY . .
+
+  RUN yarn build
+
+  ENV NODE_ENV production
   EXPOSE 3003
-  CMD ["yarn", "start"]
+  CMD ["yarn", "start", "-p", "3003"]
   

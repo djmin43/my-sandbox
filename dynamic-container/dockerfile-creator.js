@@ -1,18 +1,24 @@
 const createDockerFile = (payload) => {
-  console.log('createdockerfile', payload)
   const file = `
-  FROM node:alpine
-  RUN mkdir -p /usr/src
-  WORKDIR /usr/src
-  COPY . /usr/src  
+  FROM node
+
   ENV SN=${payload.sn}
+  ENV NEXT_PUBLIC_SN=${payload.sn}
   ENV MESSAGE="${payload.message}"
-  COPY package.json yarn.lock ./
+  ENV NEXT_PUBLIC_MESSAGE="${payload.message}"
+  
+  WORKDIR /usr/src/app
+
+  COPY package*.json ./
   RUN yarn install
-  RUN yarn build
+
   COPY . .
+
+  RUN yarn build
+
+  ENV NODE_ENV production
   EXPOSE ${payload.port}
-  CMD ["next", "start", "-p", "${payload.port}"]
+  CMD ["yarn", "start", "-p", "${payload.port}"]
   `
   return file
 }
