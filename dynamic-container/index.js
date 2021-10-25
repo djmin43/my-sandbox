@@ -7,13 +7,6 @@ const express = require("express")
 const app = express()
 const port = 5000
 
-const templateInformation = {
-  sn: 1111,
-  message: 'good-news',
-  port: 3000,
-  template: 'basic'
-}
-
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -24,9 +17,6 @@ app.post('/', async (req, res) => {
   await writeDockerFile(req.body)
   await writeDockerCompose(req.body)
   await runDockerCompose()
-  // await buildDocker(req.body)
-  // await runDocker(req.body)
-  console.log('req', req.body)
   res.send(req.body)
 })
 
@@ -49,27 +39,6 @@ const writeDockerCompose = (payload) => {
       console.log(err)
       return
     }
-  })
-}
-
-const buildDocker = (payload) => {
-  exec(`docker build -t store-${payload.sn} ./template-${payload.template}/`, (error, stdout, stderr) => {
-  if (error) {
-    console.log(`exec error: ${error}`)
-    return
-  }
-  console.log(`stdout: ${stdout}`)
-  console.error(`stderr: ${stderr}`)
-})}
-
-const runDocker = (payload) => {
-  exec(`docker run --name store-${payload.sn} -dp ${payload.port}:${payload.port} store-${payload.sn}`, (error, stdout, stderr) => {
-    if (error) {
-      console.log(`exec error: ${error}`)
-      return
-    }
-    console.log(`stdout: ${stdout}`)
-    console.error(`stdout: ${stderr}`)
   })
 }
 

@@ -1,7 +1,7 @@
 
 version: "3.9"
 services:
-  front-end:
+  front-end-1111:
     build: ./template-basic
     ports:
       - "3003:3003"

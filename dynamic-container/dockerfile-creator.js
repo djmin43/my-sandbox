@@ -1,6 +1,6 @@
 const createDockerFile = (payload) => {
   const file = `
-  FROM node
+  FROM node:alpine
 
   ENV SN=${payload.sn}
   ENV NEXT_PUBLIC_SN=${payload.sn}

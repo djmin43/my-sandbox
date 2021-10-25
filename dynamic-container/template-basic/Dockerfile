@@ -1,5 +1,5 @@
 
-  FROM node
+  FROM node:alpine
 
   ENV SN=1111
   ENV NEXT_PUBLIC_SN=1111
