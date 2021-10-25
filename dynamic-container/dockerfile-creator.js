@@ -12,7 +12,7 @@ const createDockerFile = (payload) => {
   RUN yarn build
   COPY . .
   EXPOSE ${payload.port}
-  CMD ["yarn", "start"]
+  CMD ["next", "start", "-p", "${payload.port}"]
   `
   return file
 }
