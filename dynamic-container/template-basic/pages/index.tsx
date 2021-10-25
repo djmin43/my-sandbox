@@ -12,14 +12,11 @@ const Home = () => {
   const [sn, setSn] = useState<string | undefined>('')
 
   useEffect(() => {
-    const sn = process.env.NEXT_PUBLIC_SN
-    setMessage(process.env.MESSAGE)
-    setSn(sn)
-    console.log('hello world')
-    console.log(sn)
-    console.log(process.env.MESSAGE)
+    setMessage(process.env.NEXT_PUBLIC_MESSAGE)
+    setSn(process.env.NEXT_PUBLIC_SN)
     console.log('public message', process.env.NEXT_PUBLIC_MESSAGE)
     console.log('public sn', process.env.NEXT_PUBLIC_SN)
+    console.log('sn', process.env.SN)
   }, [])
 
   return (

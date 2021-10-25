@@ -1,15 +1,14 @@
 
 version: "3.9"
 services:
-  front-end-1111:
+  front-end:
+    container_name: front-end-2
     build: ./template-basic
     ports:
-      - "3003:3003"
+      - "3002:3002"
     environment:
-      - SN=1111
-      - NEXT_PUBLIC_SN=1111
-      - MESSAGE="good-news"
-      - NEXT_PUBLIC_MESSAGE="good-news"
-    stdin_open: true
-    tty: true
+      NEXT_PUBLIC_SN: 2
+      SN: 2
+      NEXT_PUBLIC_MESSAGE: "good-news"
+    command: yarn start -p 3002
   

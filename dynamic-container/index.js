@@ -17,7 +17,7 @@ app.post('/', async (req, res) => {
   console.log(req.body)
   await writeDockerFile(req.body)
   await writeDockerCompose(req.body)
-  await runDockerCompose()
+  await runDockerCompose(req.body)
   res.send(req.body)
 })
 
@@ -43,8 +43,8 @@ const writeDockerCompose = (payload) => {
   })
 }
 
-const runDockerCompose = () => {
-  exec(`docker-compose up --build`, (error, stdout, stderr) => {
+const runDockerCompose = (payload) => {
+  exec(`docker-compose --project-name testing-${payload.sn} up -d`, (error, stdout, stderr) => {
     if (error) {
       console.log(`exec error: ${error}`)
       return
