@@ -1,10 +1,5 @@
 
-  FROM node:alpine
-
-  ENV SN=1111
-  ENV NEXT_PUBLIC_SN=1111
-  ENV MESSAGE="good-news"
-  ENV NEXT_PUBLIC_MESSAGE="good-news"
+  FROM node:14-alpine
   
   WORKDIR /usr/src/app
 
@@ -16,6 +11,4 @@
   RUN yarn build
 
   ENV NODE_ENV production
-  EXPOSE 3003
-  CMD ["yarn", "start", "-p", "3003"]
   

@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', async (req, res) => {
+  console.log(req.body)
   await writeDockerFile(req.body)
   await writeDockerCompose(req.body)
   await runDockerCompose()

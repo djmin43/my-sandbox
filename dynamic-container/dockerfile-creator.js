@@ -1,11 +1,6 @@
-const createDockerFile = (payload) => {
+const createDockerFile = () => {
   const file = `
-  FROM node:alpine
-
-  ENV SN=${payload.sn}
-  ENV NEXT_PUBLIC_SN=${payload.sn}
-  ENV MESSAGE="${payload.message}"
-  ENV NEXT_PUBLIC_MESSAGE="${payload.message}"
+  FROM node:14-alpine
   
   WORKDIR /usr/src/app
 
@@ -17,8 +12,6 @@ const createDockerFile = (payload) => {
   RUN yarn build
 
   ENV NODE_ENV production
-  EXPOSE ${payload.port}
-  CMD ["yarn", "start", "-p", "${payload.port}"]
   `
   return file
 }
