@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/blog", "destination": "https://blog.react-vercel-test-seven.vercel.app" }
+  ]
+}
+
