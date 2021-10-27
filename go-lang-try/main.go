@@ -34,7 +34,11 @@ func main() {
 	var numOne int8 = 25
 	var numTwo int8 = -128
 	// uint - unsinged int
-	var numThree uint8 = 
+	var numThree uint8 = 255
 
+	// float is a number that has a decimal point
+	var scoreOne float32 = 25.98
+	var scoreTwo float64 = 12384891234891238491238491238491234891234819234819234891234891234891234891234892134891234.24
+	
 
 }
