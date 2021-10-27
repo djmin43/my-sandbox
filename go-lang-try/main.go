@@ -23,4 +23,11 @@ func main() {
 	nameFour := "yoshi"
 	fmt.Println(nameFour)
 
+	// ints
+	var ageOne int = 20
+	var ageTwo = 30
+	ageThree := 40
+
+	fmt.Println(ageOne, ageTwo, ageThree)
+
 }
