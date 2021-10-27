@@ -30,4 +30,11 @@ func main() {
 
 	fmt.Println(ageOne, ageTwo, ageThree)
 
+	// bits & memory
+	var numOne int8 = 25
+	var numTwo int8 = -128
+	// uint - unsinged int
+	var numThree uint8 = 
+
+
 }
