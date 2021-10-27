@@ -1,13 +1,22 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+import axios from 'axios'
 
 const Home: NextPage = () => {
 
+  const [templates, setTempaltes] = useState('asdf')
 
+  useEffect(() => {
+    const apiTest = async () => {
+      const template: any = await axios.get('/api/templates')
+      setTempaltes(template.data)
+      return template
+    }
+    apiTest()
+  }, [])
 
   const title = React.createElement(Header);
 
@@ -17,10 +26,10 @@ const Home: NextPage = () => {
     footer: Footer,
   }
 
-  const componentGenerator = (component: any) => {
-    const getTemplate = templateList[component]
-    return React.createElement(getTemplate)
-  }
+  // const componentGenerator = (component: any) => {
+  //   const getTemplate = templateList[component]
+  //   return React.createElement(getTemplate)
+  // }
 
   const props = [
     'header',
