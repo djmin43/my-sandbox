@@ -22,8 +22,8 @@ const userOne = {
 const userTwo = {
   firstName: 'Michael',
   lastName: 'Jackson',
-  favouriteBand: null,
-  favouriteMovie: null,
+  favouriteBand: 'Coldplay',
+  favouriteMovie: 'Frozen',
   age: 59
 }
 
@@ -35,16 +35,26 @@ const nameAndFavouriteMovie = 'Jay Min, favourite movie: Baby Driver'
 
 // CASE #2: hard coding is bad. it's time to program!
 const userFullName = `${user.firstName} ${user.lastName}`
-const displayNameWithAge = `${userFullName} ${user.age}`
-const displayNameAndFavouriteMovie = `${userFullName}, favourite movie: ${user.favouriteMovie}`
+const displayNameWithAge = `${user.firstName} ${user.lastName} age: ${user.age}`
+const displayFullUserInformation = `${user.firstName} ${user.lastName}, favourite movie: ${user.favouriteMovie} age: ${user.age}`
 
-// CASE #3: what if there is more than one user? abstraction comes to rescue!
-const getFullUserName = (user) => `${user.firstName} ${user.lastName}`
-const userOneFullName = getFullUserName(userOne)
-const userTwoFullName = getFullUserName(userTwo)
+console.log(displayFullUserInformation)
 
-console.log(userOneFullName)
-console.log(userTwoFullName)
+// CASE #3: abstraction!
+const getFullUserInformation = (user) => {
+  const displayFullUserInformation = `
+    name: ${user.firstName} ${user.lastName},
+    age: ${user.age}
+    favourite movie: ${user.favouriteMovie}
+    favourite band: ${user.favouriteBand}
+    `
+  return displayFullUserInformation
+}
 
-// CASE #4: would abstraction solve all problems?
-const getUserNameWithAge = (user) => `${getFullUserName(user)} age: ${user.age}`
+const userOneFullInformation = getFullUserInformation(userOne)
+const userTwoFullInformation = getFullUserInformation(userTwo)
+
+console.log(userOneFullInformation)
+console.log(userTwoFullInformation)
+
+// CASE #4: time goes, the team wants to add extra feature
