@@ -16,7 +16,7 @@ const userOne = {
   lastName: 'Jordan',
   favouriteBand: 'Himself',
   favouriteMovie: 'Gladiator',
-  age: 92
+  age: 50
 }
 
 const userTwo = {
@@ -35,26 +35,46 @@ const nameAndFavouriteMovie = 'Jay Min, favourite movie: Baby Driver'
 
 // CASE #2: hard coding is bad. it's time to program!
 const userFullName = `${user.firstName} ${user.lastName}`
-const displayNameWithAge = `${user.firstName} ${user.lastName} age: ${user.age}`
-const displayFullUserInformation = `${user.firstName} ${user.lastName}, favourite movie: ${user.favouriteMovie} age: ${user.age}`
-
-console.log(displayFullUserInformation)
 
 // CASE #3: abstraction!
-const getFullUserInformation = (user) => {
-  const displayFullUserInformation = `
-    name: ${user.firstName} ${user.lastName},
-    age: ${user.age}
-    favourite movie: ${user.favouriteMovie}
-    favourite band: ${user.favouriteBand}
-    `
-  return displayFullUserInformation
+const getUserInformation = (user) => {
+  const userFullName = `${user.firstName} ${user.lastName}`
+  return userFullName
 }
 
-const userOneFullInformation = getFullUserInformation(userOne)
-const userTwoFullInformation = getFullUserInformation(userTwo)
+const userOneInformation = getUserInformation(userOne)
+const userTwoInformation = getUserInformation(userTwo)
 
-console.log(userOneFullInformation)
-console.log(userTwoFullInformation)
+console.log(userOneInformation)
+console.log(userTwoInformation)
 
-// CASE #4: time goes, the team wants to add extra feature
+// CASE #4: time goes, the team wants to add extra feature. we want to know the user's age
+
+const getUserInformationWithAge = (user) => {
+  const userNameWithAge = `${user.firstName} ${user.lastName} ${user.age}`
+  return userNameWithAge
+}
+
+// hmm.. according to DRY principle, it seems like I am repeaing user's first name and user's last name. let's refactor..
+
+const getUserData = (user, type) => {
+  const userFullName = `${user.firstName} ${user.lastName}`
+  const userAge = `${user.age}`
+  const userInformation = `${userFullName} ${userAge}`
+  switch (type) {
+    case 'nameOnly':
+      return userFullName
+    case 'userAge':
+      return userAge
+    case 'nameAndAge':
+      return userInformation
+    default:
+      return
+  }
+}
+
+console.log(getUserData(userOne, 'nameOnly')) // Michael Jordan
+console.log(getUserData(userOne, 'userAge')) // 50
+console.log(getUserData(userOne, 'nameAndAge')) // Michael Jordan 50
+
+// CASE #5: cool.. 
