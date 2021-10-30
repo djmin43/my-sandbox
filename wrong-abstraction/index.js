@@ -79,6 +79,7 @@ console.log(getUserData(userOne, 'nameAndAge')) // Michael Jordan 50
 
 // CASE #5: cool.. now we want name and favourite band, or name and favourite movie. and.. we don't need name and age anymore.
 
+// would you rather..
 const getUserData = (user, type) => {
   const userFullName = `${user.firstName} ${user.lastName}`
   const userBand = `${user.favouriteBand}`
@@ -99,5 +100,7 @@ const getUserData = (user, type) => {
   }
 }
 
-
-
+// or..?
+const getUserName = (user) => `${user.firstName} ${user.lastName}`
+const getUserNameAndBand = (user) => `${user.firstName} ${user.lastName} ${user.favouriteBand}`
+const getUserNameAndMovie = (user) => `${user.firstName} ${user.lastName} ${user.favouriteMovie}`
