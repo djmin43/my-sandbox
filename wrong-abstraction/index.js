@@ -29,8 +29,8 @@ const userTwo = {
 
 // CASE #1: no abstraction
 const displayNameOnly = 'Jay Min'
-const displayNameWithAge = 'Jay Min, 33'
-const displayNameAndFavouriteMovie = 'Jay Min, favourite movie: Baby Driver'
+const nameWithAge = 'Jay Min, 33'
+const nameAndFavouriteMovie = 'Jay Min, favourite movie: Baby Driver'
 // What happens if user name changes?
 
 // CASE #2: hard coding is bad. it's time to program!
@@ -40,6 +40,6 @@ const displayNameAndFavouriteMovie = `${userFullName}, favourite movie: ${user.f
 
 // CASE #3: what if there is more than one user? abstraction comes to rescue!
 const getFullUserName = (user) => `${user.firstName} ${user.lastName}`
-const getFullInformation = (user) => `${getFullUserName(user)} `
+const getUserNameWithAge = (user) => `${getFullUserName(user)} age: ${user.age}`
 const userOneFullName = getFullUserName(userOne)
 const userTwoFullName = getFullUserName(userTwo)
