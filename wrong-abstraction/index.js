@@ -77,4 +77,27 @@ console.log(getUserData(userOne, 'nameOnly')) // Michael Jordan
 console.log(getUserData(userOne, 'userAge')) // 50
 console.log(getUserData(userOne, 'nameAndAge')) // Michael Jordan 50
 
-// CASE #5: cool.. 
+// CASE #5: cool.. now we want name and favourite band, or name and favourite movie. and.. we don't need name and age anymore.
+
+const getUserData = (user, type) => {
+  const userFullName = `${user.firstName} ${user.lastName}`
+  const userBand = `${user.favouriteBand}`
+  const userMovie = `${user.favouriteMovie}`
+  const userInformationWithBand = `${userFullName} ${userBand}`
+  const userInformationWithMovie = `${userFullName} ${userMovie}`
+  switch (type) {
+    case 'nameOnly':
+      return userFullName
+    case 'userAge':
+      return userAge
+    case 'namdAndBand':
+      return userInformationWithBand
+    case 'namdAndMovie':
+      return userInformationWithMovie
+    default:
+      return
+  }
+}
+
+
+
