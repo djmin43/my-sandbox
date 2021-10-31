@@ -31,6 +31,7 @@ const userTwo = {
 const displayNameOnly = 'Jay Min'
 const nameWithAge = 'Jay Min, 33'
 const nameAndFavouriteMovie = 'Jay Min, favourite movie: Baby Driver'
+const nameAndFavouriteBand = 'Jay Min, favourite band: Black Sabbath'
 // What happens if user name changes?
 
 // CASE #2: hard coding is bad. it's time to program!
@@ -61,20 +62,14 @@ const getUserData = (user, type) => {
   const userFullName = `${user.firstName} ${user.lastName}`
   const userAge = `${user.age}`
   const userInformation = `${userFullName} ${userAge}`
-  switch (type) {
-    case 'nameOnly':
-      return userFullName
-    case 'userAge':
-      return userAge
-    case 'nameAndAge':
-      return userInformation
-    default:
-      return
+  if (type === 'nameOnly') {
+    return userFullName
+  } else if (type === 'nameAndAge') {
+    return userInformation
   }
 }
 
 console.log(getUserData(userOne, 'nameOnly')) // Michael Jordan
-console.log(getUserData(userOne, 'userAge')) // 50
 console.log(getUserData(userOne, 'nameAndAge')) // Michael Jordan 50
 
 // CASE #5: cool.. now we want name and favourite band, or name and favourite movie. and.. we don't need name and age anymore.
@@ -102,5 +97,6 @@ const getUserData = (user, type) => {
 
 // or..?
 const getUserName = (user) => `${user.firstName} ${user.lastName}`
+const getUserNameAndAge = (user) => `${user.firstName} ${user.lastName} ${user.age}`
 const getUserNameAndBand = (user) => `${user.firstName} ${user.lastName} ${user.favouriteBand}`
 const getUserNameAndMovie = (user) => `${user.firstName} ${user.lastName} ${user.favouriteMovie}`
