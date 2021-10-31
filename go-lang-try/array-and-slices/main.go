@@ -11,4 +11,7 @@ func main() {
 	fmt.Println(ages, len(ages))
 	fmt.Println(names, len(names))
 
+	// slices (use arrays under the hood)
+	var scores = []int{100, 50, 60}
+
 }
