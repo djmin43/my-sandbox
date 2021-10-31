@@ -21,9 +21,14 @@ func main() {
 
 	// slice ranges
 	rangeOne := names[1:3]
-	rangeTwo := names[2:]
+	rangeTwo := names[0:]
+	rangeThree := names[:3]
 
 	fmt.Println(rangeOne)
 	fmt.Println(rangeTwo)
+	fmt.Println(rangeThree)
+
+	rangeOne = append(rangeOne, "koopa")
+	fmt.Println(rangeOne)
 
 }
