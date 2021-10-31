@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func sayGreeting(name string) {
 	fmt.Printf("good morning %v \n", name)
@@ -16,8 +19,17 @@ func cycleNames(names []string, f func(string)) {
 	}
 }
 
+func circleArea(r float64) float64 {
+	return math.Pi * r * r
+}
+
 func main() {
 	sayGreeting("luigi")
 	sayBye("mario")
 	cycleNames([]string{"cloud", "tifa", "barret"}, sayGreeting)
+
+	a1 := circleArea(10.5)
+	a2 := circleArea(15)
+ 
+	fmt.Println(a1, a2)
 }
