@@ -27,4 +27,6 @@ func main() {
 	sort.Strings(names)
 	fmt.Println(names)
 
+	fmt.Println(sort.SearchStrings(names, "bowser"))
+
 }
