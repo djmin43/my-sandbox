@@ -32,4 +32,5 @@ func main() {
 	a2 := circleArea(15)
  
 	fmt.Println(a1, a2)
+	fmt.Printf("circle 1 is %0.3f and cirlce 2 is %0.3f", a1, a2)
 }
