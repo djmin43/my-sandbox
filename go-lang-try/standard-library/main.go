@@ -19,4 +19,12 @@ func main() {
 	sort.Ints(ages)
 	fmt.Println(ages)
 
+	index := sort.SearchInts(ages, 30)
+	fmt.Println(index)
+
+	names := []string{"yoshi", "mario", "peach", "bowser", "luigi"}
+
+	sort.Strings(names)
+	fmt.Println(names)
+
 }
