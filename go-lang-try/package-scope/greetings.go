@@ -9,3 +9,7 @@ func sayHello(n string) {
 	fmt.Println("hello", n)
 
 }
+
+func showScore() {
+	fmt.Println("you scored this many points:", score)
+}
