@@ -9,5 +9,19 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json(sampleTemplate)
+}
+
+
+const sampleTemplate = {
+  "name": "Default product template",
+  "wrapper": "div#div_id.div_class[attribute-one=value]",
+  "sections": {
+    "main": {
+      "type": "product"
+    }
+  },
+  "order": [
+    "main"
+  ]
 }

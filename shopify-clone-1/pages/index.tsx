@@ -10,13 +10,13 @@ const Home: NextPage = () => {
   const [templates, setTempaltes] = useState('asdf')
 
   useEffect(() => {
-    const apiTest = async () => {
-      const template: any = await axios.get('/api/templates')
-      setTempaltes(template.data)
-      return template
-    }
     apiTest()
   }, [])
+
+  const apiTest = async () => {
+    const template: any = await axios.get('/api/templates')
+    setTempaltes(template.data)
+  }
 
   const title = React.createElement(Header);
 
@@ -40,6 +40,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
+      hello world
     </div>
   )
 }
