@@ -3,10 +3,13 @@ import React, { ReactNode } from 'react'
 
 const Sample = (): ReactNode => {
   const router = useRouter()
-  const { id } = router.query
+  const { store } = router.query
+  const { page } = router.query
+  const { subPage } = router.query
+  console.log(router.query)
   return (
     <div>
-      id: { id }
+      id: { store } { page } { subPage }
     </div>
   )
 }

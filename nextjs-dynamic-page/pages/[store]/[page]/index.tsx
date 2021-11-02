@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react'
 
-const index = (): ReactNode => {  
+const index = (): ReactNode => {
   return (
     <div>
-      hello world
+      hello index
     </div>
   )
 }
