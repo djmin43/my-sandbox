@@ -21,6 +21,10 @@ func main() {
 
 	fmt.Println("memory address of name is: ", &name)
 
+	m := &name
+	fmt.Println("memory address:", m)
+	fmt.Println("value at memory address is:", *m)
+
 	fmt.Println(name)
 
 	// pointer wrapper types => slices, maps, functions
