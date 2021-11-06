@@ -19,15 +19,17 @@ func main() {
 
 	name = updateName(name)
 
+	fmt.Println("memory address of name is: ", &name)
+
 	fmt.Println(name)
 
 	// pointer wrapper types => slices, maps, functions
-	menu := map[string]float64{
-		"pie":				5.95,
-		"ice cream": 	3.99,
-	}
+	// menu := map[string]float64{
+	// 	"pie":				5.95,
+	// 	"ice cream": 	3.99,
+	// }
 
-	updateMenu(menu)
-	fmt.Println(menu)
+	// updateMenu(menu)
+	// fmt.Println(menu)
 
 }
