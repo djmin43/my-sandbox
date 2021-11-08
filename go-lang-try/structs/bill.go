@@ -16,3 +16,8 @@ func newBill(name string) bill {
 
 	return b
 }
+
+// format the bill
+func (b bill) format() string {
+
+}
