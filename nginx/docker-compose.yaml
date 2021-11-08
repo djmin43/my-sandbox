@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  # user:
+  #   build: ./nextjs
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - main-network
+  #   restart: always
+  proxy:
+    build: ./
+    ports:
+      - "8080:80"
+    networks:
+      - main-network
+    restart: always
+networks:
+  main-network:
