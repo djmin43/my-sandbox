@@ -13,6 +13,7 @@ func (s *Saiyan) Super() {
 
 func main () {
 	goku := &Saiyan{"Goku", 9001}
+	fmt.Println(goku)
 	goku.Super()
 	fmt.Println(goku.Power)
 }
