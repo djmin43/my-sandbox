@@ -1,12 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
-func main() {
-if len(os.Args) != 2 {
-os.Exit(1)
+type Saiyan struct {
+	Name string
+	Power int
 }
-fmt.Println("It's over", os.Args[1])
+
+func (s *Saiyan) Super() {
+	s.Power += 10000
 }
