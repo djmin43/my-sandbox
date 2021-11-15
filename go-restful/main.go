@@ -24,7 +24,7 @@ func main() {
 	router := gin.Default()
 	// GET function to handle path and function
 	router.GET("/albums", getAlbums)
-	router.GET("/albums", getAlbumByID)
+	router.GET("/albums/:id", getAlbumByID)
 	router.POST("/albums", postAlbums)
 
 	// Run func to attach the router to http Server and start the server
