@@ -1,6 +1,9 @@
 package main
 
-import "io/ioutil"
+import (
+	"io/ioutil"
+	"os"
+)
 
 type Page struct {
 	Title string
@@ -10,4 +13,10 @@ type Page struct {
 func (p *Page) save() error {
 	filename := p.Title + ".txt"
 	return ioutil.WriteFile(filename, p.Body, 0600)
+}
+
+func loadPage(title string) *Page {
+	filename := title + ".txt"
+	body, _ := os.ReadFile(filename)
+	return &Page{Title: title, Body: body}
 }
