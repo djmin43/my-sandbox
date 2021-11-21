@@ -29,7 +29,7 @@ func loadPage(title string) (*Page, error) {
 func viewHandler(w http.ResponseWriter, r *http.Request) {
 	title := r.URL.Path[len("/view/"):]
 	p, _ := loadPage(title)
-	fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", p.Title, p.Body)
+	fmt.Fprintf(w, "<h1>header: %s</h1><div>content: %s</div>", p.Title, p.Body)
 }
 
 func main() {
