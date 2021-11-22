@@ -5,7 +5,11 @@ import { DndProvider } from 'react-dnd'
 const Home: NextPage = () => {
   return (
     <div>
-      
+      <DndProvider
+        backend={TouchBackend}
+      >
+
+      </DndProvider>
     </div>
   )
 }
