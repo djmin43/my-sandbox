@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/kardianos/service"
 )
@@ -12,11 +13,21 @@ const serviceDescription = "Simple service, just for fun"
 type program struct{}
 
 func (p program) Start(s service.Service) error {
-	panic("implement me")
+	fmt.Println(s.String() + " started")
+	go p.run()
+	return nil
 }
 
 func (p program) Stop(s service.Service) error {
-	panic("implment me")
+	fmt.Println(s.String() + " stopped")
+	return nil
+}
+
+func (p program) run() {
+	for {
+		fmt.Println("Service is running")
+		time.Sleep(1 * time.Second)
+	}
 }
 
 func main() {
