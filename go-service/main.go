@@ -2,9 +2,16 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 
 	"github.com/kardianos/service"
+)
+
+var (
+	serviceIsRunning bool
+	programIsRunning bool
+	writingSync			sync.Mutex
 )
 
 const serviceName = "Medium service"
