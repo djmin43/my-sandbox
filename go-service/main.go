@@ -21,11 +21,17 @@ type program struct{}
 
 func (p program) Start(s service.Service) error {
 	fmt.Println(s.String() + " started")
+	writingSync.Lock()
+	serviceIsRunning = true
+	writingSync.Unlock()
 	go p.run()
 	return nil
 }
 
 func (p program) Stop(s service.Service) error {
+	writingSync.Lock()
+	serviceIsRunning = false
+	writingSync.Unlock()
 	fmt.Println(s.String() + " stopped")
 	return nil
 }
