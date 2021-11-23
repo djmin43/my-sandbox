@@ -60,6 +60,7 @@ function App() {
                             <img src={thumb} alt={`${name} Thumb`} />
                           </div>
                           <p>
+                            이름
                             { name }
                           </p>
                         </li>
