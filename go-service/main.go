@@ -32,14 +32,24 @@ func (p program) Stop(s service.Service) error {
 	writingSync.Lock()
 	serviceIsRunning = false
 	writingSync.Unlock()
+	for programIsRunning {
+		fmt.Println(s.String() + " stoping...")
+		time.Sleep(1 * time.Second)
+	}
 	fmt.Println(s.String() + " stopped")
 	return nil
 }
 
 func (p program) run() {
-	for {
+	for serviceIsRunning {
+		writingSync.Lock()
+		programIsRunning = true
+		writingSync.Unlock()
 		fmt.Println("Service is running")
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
+		writingSync.Lock()
+		programIsRunning = false
+		writingSync.Unlock()
 	}
 }
 
