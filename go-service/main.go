@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 	"time"
+	"github.com/julienschmidt/httprouter"
 
 	"github.com/kardianos/service"
 )
