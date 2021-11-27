@@ -6,6 +6,6 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-func serverHomepage(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
+func serveHomepage(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
 	
 }
