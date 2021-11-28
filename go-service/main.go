@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/julienschmidt/httprouter"
+	"github.com/julienschmidt/sse"
 
 	"github.com/kardianos/service"
 )
@@ -46,6 +47,7 @@ func (p program) Stop(s service.Service) error {
 
 func (p program) run() {
 	router := httprouter.New()
+	timer := sse.New()
 	router.ServeFiles("/js/*filepath", http.Dir("js"))
 	router.ServeFiles("/css/*filepath", http.Dir("css"))
 	router.GET("/", serveHomepage)
