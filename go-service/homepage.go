@@ -19,8 +19,6 @@ func serveHomepage(writer http.ResponseWriter, request *http.Request, params htt
 	programIsRunning = true
 	writingSync.Unlock()
 
-	time.Sleep(10*time.Second)
-
 	var homepage HomePage
 	homepage.Time = time.Now().String()
 
