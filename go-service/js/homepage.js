@@ -5,7 +5,8 @@ testButton.addEventListener("click", function () {
 })
 
 const time = new EventSource('/time');
+console.log(time);
 time.addEventListener('time', (e) => {
-    document.getElementById("actual-time").innerHTML = e.data;
+    document.getElementById("actual-time").innerHTML = "Actual time using SSE: " + e.data;
 
 }, false);
