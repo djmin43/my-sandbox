@@ -20,7 +20,7 @@ func serveHomepage(writer http.ResponseWriter, request *http.Request, params htt
 	writingSync.Unlock()
 
 	var homepage HomePage
-	homepage.Time = time.Now().String()
+	homepage.Time = time.Now().Format("02/01/2006, 15:04:05")
 
 	tmpl := template.Must(template.ParseFiles("html/homepage.html"))
 	_ = tmpl.Execute(writer, homepage)
@@ -33,7 +33,7 @@ func serveHomepage(writer http.ResponseWriter, request *http.Request, params htt
 func streamTime(timer *sse.Streamer) {
 	fmt.Println("Streaming time started")
 	for serviceIsRunning {
-		timer.SendString("", "time", time.Now().String())
+		timer.SendString("", "time", time.Now().Format("02/01/2006, 15:04:05"))
 		time.Sleep(1 * time.Millisecond)
 	}
 }

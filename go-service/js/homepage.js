@@ -1,7 +1,7 @@
 const testButton = document.getElementById("test-button")
 
 testButton.addEventListener("click", function () {
-    alert("Button clicked")
+    buttonTime.textContent = "Button clicked at: " + new Date().toLocaleString("en-IE")
 })
 
 const time = new EventSource('/time');
