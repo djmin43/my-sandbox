@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"text/template"
@@ -11,6 +12,11 @@ import (
 )
 
 type HomePage struct {
+	Time string
+}
+
+type TimeDataInput struct {
+	Name string
 	Time string
 }
 
@@ -36,4 +42,15 @@ func streamTime(timer *sse.Streamer) {
 		timer.SendString("", "time", time.Now().Format("02/01/2006, 15:04:05"))
 		time.Sleep(1 * time.Millisecond)
 	}
+}
+
+func getTime(writer http.ResponseWriter, request *http.Request, params httprouter.Param) {
+	var data TimeDataInput
+	err := json.NewDecoder(request.Body).Decode(&data)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println(data.Name)
+	fmt.Println(data.Time)
 }
